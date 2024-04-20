@@ -5,8 +5,11 @@ while True:
     for check in alphabet:
         if message.lower().find(check.lower()):
             break
-        else:
+while not is_cyrillic(message):
             print("Я не знаю такого алфавита.") # защита от введения неверной раскладки
+
+def is_cyrillic(message):
+
 cypher = ''
 print("Теперь надо придумать ключ.")
 while True:
