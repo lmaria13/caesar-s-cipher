@@ -1,25 +1,20 @@
 print("Давай я зашифрую твоё сообщение по технике Цезаря.")
 alphabet = 'абвгдеёжзиклмнопрстуфхцчшщъыьэюяабвгдеёжзиклмнопрстуфхцчшщъыьэюя' # алфавит введён в список два раза, так как при смещении на большой шаг алфавит начинается сначала
-while True:
-    message = (input("Напиши слово кириллицей.\n")).lower() # возводим всё сообщение в нижний регистр для проверки по списку
-    for check in alphabet:
-        if message.lower().find(check.lower()):
-            break
-while not is_cyrillic(message):
-            print("Я не знаю такого алфавита.") # защита от введения неверной раскладки
+def is_cyrillic(text):
+    for char in text:
+        if not ('а' <= char <= 'я' or 'А' <= char <= 'Я' or char == 'ё' or char == 'Ё'):
+            return False
+    return True
 
-def is_cyrillic(message):
-
-input_str = "testtest test1"
-def check_for_russian(string):
-    alphabet = ["а","б","в","г","д","е","ё","ж","з","и","й","к","л","м","н","о", "п","р","с","т","у","ф","х","ц","ч","ш","щ","ъ","ы","ь","э","ю","я"]
-    for one_char in string:
-        if one_char in alphabet:
-            return True
-    return False
-
-print(check_for_russian(input_str))
-
+def get_cyrillic_input(prompt):
+    while True:
+        user_input = input(prompt)
+        if is_cyrillic(user_input):
+            return user_input
+        else:
+            print("Пожалуйста, введите только символы кириллицы.")
+            
+message = get_cyrillic_input("Введите текст кириллицей.\n")
 
 cypher = ''
 print("Теперь надо придумать ключ.")
@@ -38,3 +33,4 @@ for step in message:
         cypher += step
 answer = cypher.capitalize()
 print(f"Зашифрованное послание — {answer}.")
+
