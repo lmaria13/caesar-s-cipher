@@ -10,15 +10,16 @@ while not is_cyrillic(message):
 
 def is_cyrillic(message):
 
->>> def hascyr(s):
-...     lower = set('абвгдеёжзийклмнопрстуфхцчшщъыьэюя')
-...     return lower.intersection(s.lower()) != set()
-... 
->>> hascyr('abcd')
-False
->>> hascyr('abcdБdefg')
-True
->>>
+input_str = "testtest test1"
+def check_for_russian(string):
+    alphabet = ["а","б","в","г","д","е","ё","ж","з","и","й","к","л","м","н","о", "п","р","с","т","у","ф","х","ц","ч","ш","щ","ъ","ы","ь","э","ю","я"]
+    for one_char in string:
+        if one_char in alphabet:
+            return True
+    return False
+
+print(check_for_russian(input_str))
+
 
 cypher = ''
 print("Теперь надо придумать ключ.")
