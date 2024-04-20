@@ -10,6 +10,16 @@ while not is_cyrillic(message):
 
 def is_cyrillic(message):
 
+>>> def hascyr(s):
+...     lower = set('абвгдеёжзийклмнопрстуфхцчшщъыьэюя')
+...     return lower.intersection(s.lower()) != set()
+... 
+>>> hascyr('abcd')
+False
+>>> hascyr('abcdБdefg')
+True
+>>>
+
 cypher = ''
 print("Теперь надо придумать ключ.")
 while True:
