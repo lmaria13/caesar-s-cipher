@@ -14,7 +14,7 @@ def get_cyrillic_input(prompt):
         else:
             print("Пожалуйста, введите только символы кириллицы.")
             
-message = get_cyrillic_input("Введите текст кириллицей.\n")
+message = get_cyrillic_input("Введите текст кириллицей.\n").lower()
 
 cypher = ''
 print("Теперь надо придумать ключ.")
